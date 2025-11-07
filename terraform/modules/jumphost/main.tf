@@ -59,6 +59,14 @@ resource "aws_instance" "jumphost" {
 
   vpc_security_group_ids = var.create_security_group ? concat([aws_security_group.jumphost[0].id], var.additional_security_group_ids) : var.additional_security_group_ids
 
+  # Validate that at least one security group is attached
+  lifecycle {
+    precondition {
+      condition     = var.create_security_group || length(var.additional_security_group_ids) > 0
+      error_message = "At least one security group must be attached. Either set create_security_group=true or provide additional_security_group_ids."
+    }
+  }
+
   # Enable detailed monitoring if specified
   monitoring = var.enable_monitoring
 

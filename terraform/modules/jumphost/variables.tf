@@ -46,7 +46,7 @@ variable "security_group_name" {
 }
 
 variable "additional_security_group_ids" {
-  description = "List of additional security group IDs to attach to the jumphost"
+  description = "List of additional security group IDs to attach to the jumphost. Required if create_security_group is false."
   type        = list(string)
   default     = []
 }

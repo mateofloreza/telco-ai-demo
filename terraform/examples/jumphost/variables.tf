@@ -18,9 +18,10 @@ variable "ssh_key_name" {
 variable "trusted_ip_ranges" {
   description = "List of CIDR blocks allowed to SSH into the jumphost"
   type        = list(string)
-  default = [
-    # Example: Add your office or VPN IP ranges here
-    # "203.0.113.0/24",
-    # "198.51.100.0/24"
-  ]
+  # Note: No default value - you must specify trusted IP ranges for security
+  # Example values:
+  # trusted_ip_ranges = [
+  #   "203.0.113.0/24",  # Office network
+  #   "198.51.100.0/24"  # VPN network
+  # ]
 }
