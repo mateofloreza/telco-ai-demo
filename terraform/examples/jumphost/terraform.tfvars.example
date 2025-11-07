@@ -1,0 +1,7 @@
+# Example Terraform variables file
+# Copy this file to terraform.tfvars and update with your values
+
+vpc_id            = "vpc-xxxxxxxxx"
+public_subnet_id  = "subnet-xxxxxxxxx"
+ssh_key_name      = "your-key-name"
+trusted_ip_ranges = ["YOUR_IP/32"]  # Replace with your IP address
